@@ -1,4 +1,8 @@
 name: foofoo
+run-name: >
+  foofoo • ${{ github.event_name }}
+  • base=${{ github.event.pull_request.base.ref }}
+  • head=${{ github.event.pull_request.head.ref }}
 
 on:
   pull_request:
