@@ -1,0 +1,15 @@
+name: foofoo
+
+on:
+  pull_request:
+  pull_request_target:
+
+jobs:
+  print-sha:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo ">>> Workflow = foofoo"
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          echo "HEAD SHA = ${{ github.event.pull_request.head.sha }}"
+          echo "BASE SHA = ${{ github.event.pull_request.base.sha }}"
