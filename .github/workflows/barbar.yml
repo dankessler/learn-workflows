@@ -1,0 +1,20 @@
+name: barbar
+run-name: >
+  barbar • ${{ github.event_name }}
+  • base=${{ github.event.pull_request.base.ref }}
+  • head=${{ github.event.pull_request.head.ref }}
+
+
+on:
+  pull_request:
+  pull_request_target:
+
+jobs:
+  print-sha:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo ">>> Workflow = barbar"
+          echo "GITHUB_SHA=${GITHUB_SHA}"
+          echo "HEAD SHA = ${{ github.event.pull_request.head.sha }}"
+          echo "BASE SHA = ${{ github.event.pull_request.base.sha }}"
